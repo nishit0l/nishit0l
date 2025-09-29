@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nishit Patel | Digital Creator & Developer</title>
-
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* --- Google Fonts Import (Oswald for Headings, Raleway for Body) --- */
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Raleway:wght@300;400;700&display=swap');
-
         /* --- CSS Variables (Updated Palette) --- */
         :root {
-            --bg-color: #0a0a0a; /* Almost Black Background */
-            --surface-color: #1a1a1a; /* Card Background */
-            --primary-text-color: #f0f0f0; /* Softer White Text */
-            --secondary-text-color: #a0a0a0; /* Dimmer Text */
-            --accent-color: #00aaff; /* Kept the accent for contrast */
+            --bg-color: #0a0a0a;
+            --surface-color: #1a1a1a;
+            --primary-text-color: #f0f0f0;
+            --secondary-text-color: #a0a0a0;
+            --accent-color: #00aaff;
+            --accent-glow: rgba(0, 170, 255, 0.3);
         }
 
         /* --- Global & Reset Styles --- */
@@ -35,6 +39,7 @@
             color: var(--primary-text-color);
             line-height: 1.7;
             font-weight: 300;
+            overflow-x: hidden;
         }
 
         /* NEW: Dark overlay for readability */
@@ -45,13 +50,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* The dark layer */
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 0;
         }
 
         a {
             color: var(--accent-color);
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         img {
@@ -84,6 +90,18 @@
             font-size: 3rem;
             text-align: center;
             margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
         }
 
         /* --- Vanta.js 3D Background Styling --- */
@@ -93,7 +111,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Pushed behind the overlay */
+            z-index: -1;
         }
 
         /* --- Header & Navigation --- */
@@ -103,13 +121,14 @@
             top: 0;
             left: 0;
             z-index: 100;
-            transition: background-color 0.4s ease;
+            transition: all 0.4s ease;
         }
 
         header.scrolled {
-            background-color: rgba(10, 10, 10, 0.7);
+            background-color: rgba(10, 10, 10, 0.9);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
 
         nav {
@@ -121,9 +140,18 @@
             padding: 1.2rem 5%;
         }
 
-        .logo img {
-            height: 40px;
-            width: auto;
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-text-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
         }
 
         nav ul {
@@ -138,10 +166,26 @@
             font-weight: 400;
             font-family: 'Oswald', sans-serif;
             letter-spacing: 1px;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
         }
 
         nav ul li a:hover {
             color: var(--accent-color);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         /* --- Hero Section --- */
@@ -155,6 +199,9 @@
 
         .hero-content {
             flex: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards;
         }
 
         .hero-content p {
@@ -167,11 +214,21 @@
         .hero-image {
             flex: 1;
             max-width: 400px;
+            opacity: 0;
+            transform: translateX(30px);
+            animation: fadeRight 1s ease 0.5s forwards;
         }
 
         .hero-image img {
             border-radius: 50%;
             border: 5px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px var(--accent-glow);
+            transition: all 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px var(--accent-glow);
         }
 
         /* --- Unique Button Style --- */
@@ -186,13 +243,31 @@
             border: 2px solid var(--accent-color);
             letter-spacing: 1px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.5s ease;
+            z-index: -1;
         }
 
         .cta-button:hover {
-            background: var(--accent-color);
             color: #111;
-            box-shadow: 0 0 20px var(--accent-color);
+            box-shadow: 0 0 20px var(--accent-glow);
             transform: translateY(-3px);
+        }
+
+        .cta-button:hover::before {
+            left: 0;
         }
 
         /* --- Sections Styling --- */
@@ -202,12 +277,44 @@
             backdrop-filter: blur(10px);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
         }
+
+        #about.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         #about p {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 1.5rem;
             color: var(--secondary-text-color);
             font-size: 1.1rem;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background: rgba(0, 170, 255, 0.1);
+            border: 1px solid rgba(0, 170, 255, 0.3);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 170, 255, 0.2);
+            transform: translateY(-3px);
         }
 
         .project-grid {
@@ -222,17 +329,29 @@
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project-card.in-view {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
         .project-card img {
             width: 100%;
             height: 220px;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
         }
 
         .project-card h3 {
@@ -250,6 +369,14 @@
 
         #contact {
             text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        #contact.in-view {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         #contact p {
@@ -259,14 +386,76 @@
             font-size: 1.1rem;
         }
 
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--primary-text-color);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            color: #111;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--accent-glow);
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
             background-color: transparent;
             color: var(--secondary-text-color);
             font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
+        /* --- Animations --- */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, -15px); }
+            100% { transform: translate(0, 0px); }
+        }
+
         /* --- Responsive & JS Support Styles --- */
         .hamburger {
             display: none;
@@ -293,13 +482,14 @@
             position: absolute;
             right: 0;
             top: 70px;
-            background-color: rgba(10, 10, 10, 0.8);
+            background-color: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
             width: 100%;
             flex-direction: column;
             align-items: center;
             display: flex !important;
             padding: 1rem 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         .nav-active li {
             padding: 1rem 0;
@@ -336,13 +526,18 @@
     <header>
         <nav>
             <a href="#" class="logo">
-                <img src="https://i.imgur.com/your-logo.png" alt="Nedits Edition Logo" style="height: 40px;">
+                <i class="fas fa-code"></i> NEDITS<span>EDITION</span>
             </a>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 
@@ -354,7 +549,7 @@
                 <a href="#projects" class="cta-button">View My Work</a>
             </div>
             <div class="hero-image">
-                 <img src="https://i.imgur.com/your-profile-photo.jpg" alt="Nishit Patel Headshot">
+                 <img src="https://i.imgur.com/your-profile-photo.jpg" alt="Nishit Patel Headshot" class="floating">
             </div>
         </section>
 
@@ -366,6 +561,14 @@
             <p>
                 I believe that a great idea combined with the right technology can create amazing things. I am always ready for new challenges, whether it's building an engaging website, a smart Telegram bot, or an effective digital marketing campaign.
             </p>
+            <div class="skills-container">
+                <span class="skill-tag">Web Development</span>
+                <span class="skill-tag">UI/UX Design</span>
+                <span class="skill-tag">Graphic Design</span>
+                <span class="skill-tag">App Development</span>
+                <span class="skill-tag">Digital Marketing</span>
+                <span class="skill-tag">Automation</span>
+            </div>
         </section>
 
         <section id="projects">
@@ -408,6 +611,12 @@
             <h2>Get In Touch</h2>
             <p>I'm currently available for freelance work. If you have a project in mind or just want to say hello, feel free to reach out!</p>
             <a href="mailto:your-email@example.com" class="cta-button">Say Hello</a>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
         </section>
     </main>
 
@@ -470,16 +679,31 @@
 
             // --- Hamburger Menu Logic for Mobile ---
             const nav = document.querySelector('nav ul');
-            const navContainer = document.querySelector('nav');
-            
-            const hamburger = document.createElement('div');
-            hamburger.classList.add('hamburger');
-            hamburger.innerHTML = `<span></span><span></span><span></span>`;
-            navContainer.appendChild(hamburger);
+            const hamburger = document.querySelector('.hamburger');
 
             hamburger.addEventListener('click', () => {
                 nav.classList.toggle('nav-active');
                 hamburger.classList.toggle('toggle');
+            });
+
+            // --- Scroll Animation for Sections ---
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for scroll animation
+            const sectionsToAnimate = document.querySelectorAll('#about, #contact, .project-card');
+            sectionsToAnimate.forEach(section => {
+                observer.observe(section);
             });
         });
     </script>
