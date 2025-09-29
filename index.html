@@ -8,9 +8,13 @@
 </head>
 <body>
 
+    <div id="vanta-bg"></div>
+
     <header>
         <nav>
-            <a href="#" class="logo">Nedits Edition</a>
+            <a href="#" class="logo">
+                <img src="assets/images/your-logo.png" alt="Nedits Edition Logo" style="height: 40px;">
+            </a>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -22,7 +26,7 @@
     <main>
         <section id="hero">
             <div class="hero-content">
-                <h1>Crafting Digital Experiences</h1>
+                <h1><span id="typing-animation"></span></h1>
                 <p>Hi, I'm Nishit Patel. A passionate Graphic Designer and Web Developer based in India, creating modern and engaging digital solutions.</p>
                 <a href="#projects" class="cta-button">View My Work</a>
             </div>
@@ -33,40 +37,44 @@
 
         <section id="about">
             <h2>About Me</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. I have a passion for creating intuitive, dynamic user experiences.</p>
-            <p>My skill set is diverse, ranging from photo and video editing to creating full-stack web applications and Telegram bots. I'm constantly learning and exploring new technologies to push the boundaries of what's possible.</p>
+            <p>
+                मैं एक पैशनेट और मल्टी-डिसिप्लिनरी क्रिएटर हूँ जिसे टेक्नोलॉजी और डिज़ाइन की दुनिया में नई चीज़ें बनाना पसंद है। मेरा सफ़र ग्राफिक डिज़ाइन से शुरू हुआ और जल्द ही मैंने वेब डेवलपमेंट, ऐप डेवलपमेंट और ऑटोमेशन में भी अपनी स्किल्स को बढ़ाया।
+            </p>
+            <p>
+                मेरा मानना है कि एक अच्छा आइडिया और सही टेक्नोलॉजी मिलकर कुछ भी बना सकते हैं। मैं हमेशा नई चुनौतियों के लिए तैयार रहता हूँ, चाहे वो एक आकर्षक वेबसाइट बनाना हो, एक स्मार्ट टेलीग्राम बॉट, या फिर एक प्रभावी डिजिटल मार्केटिंग कैंपेन।
+            </p>
         </section>
 
         <section id="projects">
             <h2>Featured Projects</h2>
             <div class="project-grid">
                 <a href="projects/project1.html" class="project-card">
-                    <img src="assets/images/project1.jpg" alt="Description of Project 1">
+                    <img src="assets/images/project1.jpg" alt="AI Chatbot Website">
                     <h3>AI Chatbot Website</h3>
                     <p>Web Development</p>
                 </a>
                 <a href="projects/project2.html" class="project-card">
-                    <img src="assets/images/project2.jpg" alt="Description of Project 2">
+                    <img src="assets/images/project2.jpg" alt="Brand Logo Design">
                     <h3>Brand Logo Design</h3>
                     <p>Graphic Design</p>
                 </a>
                 <a href="projects/project3.html" class="project-card">
-                    <img src="assets/images/project3.jpg" alt="Description of Project 3">
+                    <img src="assets/images/project3.jpg" alt="Mobile App Concept">
                     <h3>Mobile App Concept</h3>
                     <p>App Development</p>
                 </a>
                 <a href="projects/project4.html" class="project-card">
-                    <img src="assets/images/project4.jpg" alt="Description of Project 4">
+                    <img src="assets/images/project4.jpg" alt="Promotional Video">
                     <h3>Promotional Video</h3>
                     <p>Video Editing</p>
                 </a>
                  <a href="projects/project5.html" class="project-card">
-                    <img src="assets/images/project5.jpg" alt="Description of Project 5">
+                    <img src="assets/images/project5.jpg" alt="Telegram Automation Bot">
                     <h3>Telegram Automation Bot</h3>
                     <p>Automation</p>
                 </a>
                  <a href="projects/project6.html" class="project-card">
-                    <img src="assets/images/project6.jpg" alt="Description of Project 6">
+                    <img src="assets/images/project6.jpg" alt="Social Media Campaign">
                     <h3>Social Media Campaign</h3>
                     <p>Digital Marketing</p>
                 </a>
@@ -84,6 +92,10 @@
         <p>&copy; 2025 Nishit Patel. All Rights Reserved.</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    
     <script src="js/script.js"></script>
 
 </body>
