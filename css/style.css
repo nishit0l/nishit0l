@@ -1,0 +1,238 @@
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- CSS Variables (Color Palette) --- */
+:root {
+    --bg-color: #121212; /* Dark Background */
+    --surface-color: #1e1e1e; /* Card & Header Background */
+    --primary-text-color: #e0e0e0; /* Light Gray Text */
+    --secondary-text-color: #a0a0a0; /* Dimmer Text */
+    --accent-color: #00aaff; /* Bright Blue for highlights */
+    --hover-color: #0088cc;
+}
+
+/* --- Global & Reset Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+section {
+    padding: 6rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* --- Header & Navigation --- */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--surface-color);
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 5%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: var(--primary-text-color);
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+
+/* --- Hero Section --- */
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-top: 8rem; /* To offset fixed header */
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content p {
+    margin-bottom: 2rem;
+    color: var(--secondary-text-color);
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 400px;
+}
+
+.hero-image img {
+    border-radius: 50%;
+    border: 5px solid var(--surface-color);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--hover-color);
+}
+
+
+/* --- About Section --- */
+#about {
+    text-align: center;
+    background-color: var(--surface-color);
+}
+#about p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--secondary-text-color);
+}
+
+/* --- Projects Section --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--surface-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    font-size: 1.2rem;
+    padding: 1rem 1rem 0 1rem;
+    color: var(--primary-text-color);
+}
+
+.project-card p {
+    padding: 0 1rem 1rem 1rem;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+
+/* --- Contact Section --- */
+#contact {
+    text-align: center;
+}
+
+#contact p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    color: var(--secondary-text-color);
+}
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--surface-color);
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-bottom: 2rem;
+        max-width: 300px;
+    }
+    
+    nav ul {
+        display: none; /* Simple hiding for mobile, can be replaced with a burger menu JS */
+    }
+}
