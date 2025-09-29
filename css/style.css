@@ -236,3 +236,89 @@ footer {
         display: none; /* Simple hiding for mobile, can be replaced with a burger menu JS */
     }
 }
+
+/* --- CSS for JavaScript Functionality --- */
+
+/* Hamburger Icon Styling */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: var(--primary-text-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger animation on click */
+.toggle span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle span:nth-child(2) {
+    opacity: 0;
+}
+.toggle span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+/* Mobile Navigation Active State */
+.nav-active {
+    position: absolute;
+    right: 0px;
+    top: 60px; /* Adjust based on header height */
+    background-color: var(--surface-color);
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    display: flex !important; /* Overrides the display:none */
+    padding: 1rem 0;
+}
+
+.nav-active li {
+    padding: 1rem 0;
+}
+
+
+/* Scroll Animation Classes */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Updating the Responsive Media Query */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-bottom: 2rem;
+        max-width: 300px;
+    }
+    
+    /* Show hamburger on mobile, hide normal nav */
+    .hamburger {
+        display: block;
+    }
+    
+    nav ul {
+        display: none;
+    }
+}
