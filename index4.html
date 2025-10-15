@@ -88,7 +88,6 @@
             align-items: center;
         }
 
-        /* NEW: CSS for Fade Animation */
         #headline-fader {
             transition: opacity 0.5s ease-in-out;
         }
@@ -115,7 +114,6 @@
             background: var(--accent-color);
         }
 
-        /* --- Vanta.js 3D Background Styling --- */
         #vanta-bg {
             position: fixed;
             top: 0;
@@ -125,7 +123,6 @@
             z-index: -1;
         }
 
-        /* --- Header & Navigation --- */
         header {
             position: fixed;
             width: 100%;
@@ -230,7 +227,6 @@
             color: white;
         }
         
-        /* --- Hero Section --- */
         #hero {
             display: flex;
             align-items: center;
@@ -251,6 +247,17 @@
             color: var(--secondary-text-color);
             max-width: 500px;
             font-size: 1.1rem;
+        }
+        
+        /* --- NEW CSS ADDED FOR YOUR NAME --- */
+        .pre-headline {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 3px;
+            font-size: 1rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .hero-image {
@@ -273,7 +280,6 @@
             box-shadow: 0 0 40px var(--accent-glow);
         }
 
-        /* --- Button Style --- */
         .cta-button {
             display: inline-block;
             background: transparent;
@@ -307,7 +313,6 @@
             left: 0;
         }
         
-        /* --- About, Projects, Contact Sections --- */
         #about {
             text-align: center;
             background-color: rgba(10, 10, 10, 0.7);
@@ -455,7 +460,6 @@
             box-shadow: 0 5px 15px var(--accent-glow);
         }
 
-        /* --- Footer --- */
         footer {
             text-align: center;
             padding: 3rem;
@@ -467,7 +471,6 @@
             z-index: 1;
         }
         
-        /* --- Animations --- */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -488,7 +491,6 @@
             100% { transform: translate(0, 0px); }
         }
 
-        /* --- Responsive & JS Support Styles --- */
         .hamburger {
             display: none;
             cursor: pointer;
@@ -579,17 +581,12 @@
 
     <main>
         <section id="hero">
-<div class="hero-content">
-    <h1><span id="headline-fader"></span></h1>
-
-    <p>
-        <strong style="color: var(--primary-text-color);">Hello, I'm Nishit Patel.</strong> A digital creator who blends the art of design with the precision of code to build exceptional web experiences.
-    </p>
-    
-    <a href="#projects" class="cta-button">View My Work</a>
-</div>
-
-
+            <div class="hero-content">
+                <p class="pre-headline">I'm Nishit Patel</p>
+                <h1><span id="headline-fader"></span></h1>
+                <p>A digital creator who blends the art of design with the precision of code to build exceptional web experiences.</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
             <div class="hero-image">
                  <img src="profile-photo.jpg" alt="Nishit Patel Headshot" class="floating">
             </div>
